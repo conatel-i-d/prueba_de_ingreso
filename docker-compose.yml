@@ -1,0 +1,54 @@
+version: "3.0"
+services:
+  test:
+    build:
+      context: ./test
+    tty: true
+    stdin_open: true
+    dns:
+      - 172.20.0.4
+    networks:
+      maqueta:
+        ipv4_address: 172.20.0.2
+  web:
+    build:
+      context: ./web
+    tty: true
+    stdin_open: true
+    dns:
+      - 172.20.0.4
+    volumes:
+      - ./web/root_folder:/var/www/html
+    networks:
+      maqueta:
+        ipv4_address: 172.20.0.3
+  dns:
+    build:
+      context: ./dns
+    tty: true
+    stdin_open: true
+    networks:
+      maqueta:
+        ipv4_address: 172.20.0.4
+  vyos:
+    environment:
+      - BUILD_DATE=20200917
+      - VYOS_VERSION=version
+      - DEBIAN_VERSION=stable
+    build:
+      context: ./vyos
+      dockerfile: docker-vyos/Dockerfile
+    privileged: true
+    volumes:
+      - /lib/modules:/lib/modules
+      - ./vyos/prueba_config:/config
+    networks:
+      maqueta:
+        ipv4_address: 172.20.0.5
+networks:
+  maqueta:
+    driver: bridge
+    internal: false
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
