@@ -1,12 +1,9 @@
 version: "3.0"
 services:
-  test:
-    build:
-      context: ./test
-    tty: true
-    stdin_open: true
-    dns:
-      - 172.20.0.4
+  frontend:
+    image: nginx
+    volumes:
+      - ./frontend/frontend/build:/usr/share/nginx/html:ro
     networks:
       maqueta:
         ipv4_address: 172.20.0.2
