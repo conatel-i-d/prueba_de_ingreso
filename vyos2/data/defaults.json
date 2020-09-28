@@ -1,0 +1,16 @@
+{
+  "architecture": "amd64",
+  "debian_mirror": "http://deb.debian.org/debian",
+  "debian_security_mirror": "http://deb.debian.org/debian-security",
+  "debian_distribution": "buster",
+  "vyos_mirror": "http://dev.packages.vyos.net/repositories/current",
+  "vyos_branch": "current",
+  "kernel_version": "4.19.145",
+  "kernel_flavor": "amd64-vyos",
+  "release_train": "equuleus",
+  "additional_repositories": [
+    "deb http://repo.saltstack.com/py3/debian/10/amd64/2019.2 buster main",
+    "deb http://repo.powerdns.com/debian buster-rec-43 main"
+  ],
+  "custom_packages": []
+}
