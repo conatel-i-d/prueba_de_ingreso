@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update && apt-get install -y python3-pip
 # Install and upgrade pip3
 CMD bash
-RUN python3.6 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade pip
 ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 ENV RUNNING_LOCALLY=True
