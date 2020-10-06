@@ -39,21 +39,21 @@ services:
     networks:
       maqueta:
         ipv4_address: 172.20.0.4
-  vyos:
-    environment:
-      - BUILD_DATE=20200917
-      - VYOS_VERSION=version
-      - DEBIAN_VERSION=stable
-    build:
-      context: ./vyos
-      dockerfile: docker-vyos/Dockerfile
-    privileged: true
-    volumes:
-      - /lib/modules:/lib/modules
-      - ./vyos/prueba_config:/config
-    networks:
-      maqueta:
-        ipv4_address: 172.20.0.5
+# vyos:
+#   environment:
+#     - BUILD_DATE=20200917
+#     - VYOS_VERSION=version
+#     - DEBIAN_VERSION=stable
+#   build:
+#     context: ./vyos
+#     dockerfile: docker-vyos/Dockerfile
+#   privileged: true
+#   volumes:
+#     - /lib/modules:/lib/modules
+#     - ./vyos/prueba_config:/config
+#   networks:
+#     maqueta:
+#       ipv4_address: 172.20.0.5
   validator:
     build:
       context: ./validator/runtime
