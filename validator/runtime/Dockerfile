@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y python3-pip
 CMD bash
 RUN python3 -m pip install --upgrade pip
 ADD requirements.txt requirements.txt
+RUN pip3 install psycopg2-binary
 RUN pip3 install -r requirements.txt
 ENV RUNNING_LOCALLY=True
 CMD bash -c "cd /app && python3 app.py"
