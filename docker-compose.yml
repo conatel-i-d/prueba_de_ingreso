@@ -1,5 +1,15 @@
 version: "3.0"
 services:
+  lab:
+    build:
+      context: ./lab
+    tty: true
+    stdin_open: true
+    ports:
+      - "2222:22"
+    networks:
+      maqueta:
+        ipv4_address: 172.20.0.100
   frontend:
     image: nginx
     volumes:
