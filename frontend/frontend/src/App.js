@@ -16,7 +16,7 @@ async function testExcercise(serverIP, excerciseNumber) {
 }
 
 function TestsResults(props) {
-  const pollTime = 2000;
+  const pollTime = 30000;
   const [oneOK, setOneOK] = useState(false);
   const [twoOK, setTwoOK] = useState(false);
   const [threeOK, setThreeOK] = useState(false);
