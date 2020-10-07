@@ -31,7 +31,7 @@ class Ejercicio1Resource(Resource):
 class Ejercicio2Resource(Resource):
     def get(self):
         from icmplib import ping
-        if ping('172.20.0.5', count=1).is_alive:
+        if ping(os.environ.get('VYOS_IP'), count=1).is_alive:
             return {'ejercicio2': 'OK'}
         else:
             return {'ejercicio2': 'Error'}, 400
