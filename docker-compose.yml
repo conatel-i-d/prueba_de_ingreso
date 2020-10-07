@@ -40,6 +40,8 @@ services:
       maqueta:
         ipv4_address: 172.20.0.4
   validator:
+    environment:
+      - VYOS_IP=172.20.0.5
     build:
       context: ./validator/runtime
     tty: true
